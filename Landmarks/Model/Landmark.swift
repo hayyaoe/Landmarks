@@ -9,13 +9,21 @@ import Foundation
 import SwiftUI
 import CoreLocation
 
-struct Landmark: Hashable, Codable, Identifiable{
+struct Landmark: Hashable, Codable, Identifiable {
     var id: Int
     var name: String
     var park: String
     var state: String
     var description: String
     var isFavorite: Bool
+    
+    // add category enumeration, The landmarkData file already includes a category value for each landmark with one of three string values. By matching the names in the data file, you can rely on the structure’s Codable conformance to load the data.
+    var category: Category
+    enum Category: String, CaseIterable, Codable {
+        case lakes = "Lakes"
+        case rivers = "Rivers"
+        case mountains = "Mountains"
+    }
     
     private var imageName: String
     var image: Image{
