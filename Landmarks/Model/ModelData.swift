@@ -9,8 +9,10 @@ import Foundation
 
 @Observable
 class ModelData {
+    // Load LandmarkData.Json
     var landmarks: [Landmark] = load("landmarkData.json")
-//    var hikes: [Hike] = load("hikeData.json")
+    // load HikeData.Json
+    var hikes: [Hike] = load("hikeData.json")
     
     // computed categoires dictionary with category name as keys and an array of associated landmarks for each key.
     var categories: [String: [Landmark]] {
