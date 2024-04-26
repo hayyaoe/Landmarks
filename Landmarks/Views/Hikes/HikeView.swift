@@ -26,7 +26,11 @@ struct HikeView: View {
                 Spacer()
 
                 Button {
-                    showDetail.toggle()
+                    // use with Animation Function to wrap the button toggle
+                    // the .easeInOut(duration: ) attribute lets you modify the animation duraion and the animation mode.
+                    withAnimation{
+                        showDetail.toggle()
+                    }
                 } label: {
                     Label("Graph", systemImage: "chevron.right.circle")
                         .labelStyle(.iconOnly)
