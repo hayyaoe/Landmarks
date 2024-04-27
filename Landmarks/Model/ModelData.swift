@@ -13,6 +13,8 @@ class ModelData {
     var landmarks: [Landmark] = load("landmarkData.json")
     // load HikeData.Json
     var hikes: [Hike] = load("hikeData.json")
+    // add instance of user profile
+    var profile = Profile.default
     
     // computed categoires dictionary with category name as keys and an array of associated landmarks for each key.
     var categories: [String: [Landmark]] {
