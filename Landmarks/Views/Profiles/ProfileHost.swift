@@ -21,6 +21,14 @@ struct ProfileHost: View {
         VStack(alignment: .leading, spacing: 20) {
             // add edit button.
             HStack {
+                // cancle button to ignore updates
+                if editMode?.wrappedValue == .active {
+                    Button("Cancel", role: .cancel) {
+                        draftProfile = modelData.profile
+                        editMode?.animation().wrappedValue = .inactive
+                    }
+                }
+                
                 Spacer()
                 EditButton()
             }
@@ -30,7 +38,15 @@ struct ProfileHost: View {
                 // add profile data parameter.
                 ProfileSummary(profile: modelData.profile)
             } else {
-                Text("Profile Editor")
+                // add profile editor view.
+                ProfileEditor(profile: $draftProfile)
+                    // add apper and dissapear modifier
+                    .onAppear {
+                        draftProfile = modelData.profile
+                    }
+                    .onDisappear {
+                        modelData.profile = draftProfile
+                    }
             }
         }
         .padding()

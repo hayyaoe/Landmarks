@@ -41,6 +41,7 @@
 		7EE0D64F2BDD1C1B00B0B9FB /* ProfileHost.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EE0D64E2BDD1C1B00B0B9FB /* ProfileHost.swift */; };
 		7EE0D6522BDD1DDF00B0B9FB /* ProfileSummary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EE0D6512BDD1DDF00B0B9FB /* ProfileSummary.swift */; };
 		7EE0D6542BDD1E8100B0B9FB /* HikeBadge.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EE0D6532BDD1E8100B0B9FB /* HikeBadge.swift */; };
+		7EE0D6562BDD27E300B0B9FB /* ProfileEditor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EE0D6552BDD27E300B0B9FB /* ProfileEditor.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -98,6 +99,7 @@
 		7EE0D64E2BDD1C1B00B0B9FB /* ProfileHost.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileHost.swift; sourceTree = "<group>"; };
 		7EE0D6512BDD1DDF00B0B9FB /* ProfileSummary.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileSummary.swift; sourceTree = "<group>"; };
 		7EE0D6532BDD1E8100B0B9FB /* HikeBadge.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HikeBadge.swift; sourceTree = "<group>"; };
+		7EE0D6552BDD27E300B0B9FB /* ProfileEditor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileEditor.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -268,6 +270,7 @@
 			children = (
 				7EE0D64E2BDD1C1B00B0B9FB /* ProfileHost.swift */,
 				7EE0D6512BDD1DDF00B0B9FB /* ProfileSummary.swift */,
+				7EE0D6552BDD27E300B0B9FB /* ProfileEditor.swift */,
 			);
 			path = Profiles;
 			sourceTree = "<group>";
@@ -422,6 +425,7 @@
 				7E7570282BDA1E8700687596 /* BadgeSymbol.swift in Sources */,
 				7E4AF4112BD2079D00A7EBF6 /* LandmarkList.swift in Sources */,
 				7E4AF4132BD2099A00A7EBF6 /* LandmarkDetail.swift in Sources */,
+				7EE0D6562BDD27E300B0B9FB /* ProfileEditor.swift in Sources */,
 				7E7570262BDA148E00687596 /* BadgeBackground.swift in Sources */,
 				7E4AF4022BD1F6AA00A7EBF6 /* CircleImage.swift in Sources */,
 				7EE0D6422BDC2C2600B0B9FB /* GraphCapsule.swift in Sources */,
