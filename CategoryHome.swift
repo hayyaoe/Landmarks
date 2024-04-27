@@ -16,9 +16,20 @@ struct CategoryHome: View {
         NavigationSplitView {
             // display the categories using list.Category case name identifies each item in the list, which must be unique among other categories because it’s an enumeration.
             List {
+                
+                // add image for the first feartued landmark and add as a carousel
+                modelData.features[0].image
+                        .resizable()
+                        .scaledToFill()
+                        .frame(height: 200)
+                        .clipped()
+                        .listRowInsets(EdgeInsets())
+                
                 ForEach(modelData.categories.keys.sorted(), id: \.self) { key in
-                    Text(key)
+                    // display the categories using CategoryRow
+                    CategoryRow(categoryName: key, items: modelData.categories[key]!)
                 }
+                .listRowInsets(EdgeInsets())
             }
             .navigationTitle("Featured")
         } detail: {

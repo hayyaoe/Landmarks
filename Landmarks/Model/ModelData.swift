@@ -21,6 +21,11 @@ class ModelData {
             by: { $0.category.rawValue }
         )
     }
+    
+    // add compute feature array which contains only the landmarks that have is Featured set to true
+    var features: [Landmark] {
+        landmarks.filter{ $0.isFeatured}
+    }
 }
 
 var landmarks: [Landmark] = load("landmarkData.json")

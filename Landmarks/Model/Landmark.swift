@@ -16,6 +16,8 @@ struct Landmark: Hashable, Codable, Identifiable {
     var state: String
     var description: String
     var isFavorite: Bool
+    // add isFeatured property, Like for other landmark properties you’ve added, this Boolean already exists in the data — you just need to declare a new property.
+    var isFeatured: Bool
     
     // add category enumeration, The landmarkData file already includes a category value for each landmark with one of three string values. By matching the names in the data file, you can rely on the structure’s Codable conformance to load the data.
     var category: Category
