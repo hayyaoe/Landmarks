@@ -20,14 +20,15 @@ struct CategoryHome: View {
             List {
                 // replace placeholder fetuare imagee imaeg
                 PageView(pages: modelData.features.map { FeatureCard(landmark: $0) })
+                    .listRowInsets(EdgeInsets())
                 
                 // add image for the first feartued landmark and add as a carousel
-                modelData.features[0].image
-                        .resizable()
-                        .scaledToFill()
-                        .frame(height: 200)
-                        .clipped()
-                        .listRowInsets(EdgeInsets())
+//                modelData.features[0].image
+//                        .resizable()
+//                        .scaledToFill()
+//                        .frame(height: 200)
+//                        .clipped()
+//                        .listRowInsets(EdgeInsets())
                 
                 ForEach(modelData.categories.keys.sorted(), id: \.self) { key in
                     // display the categories using CategoryRow

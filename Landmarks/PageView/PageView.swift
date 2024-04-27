@@ -13,7 +13,7 @@ struct PageView<Page: View>: View {
     @State private var currentPage = 1
     
     var body: some View {
-        ZStack {
+        ZStack(alignment: .bottomTrailing){
             // declare pageViewController.
             PageViewController(pages: pages, currentPage: $currentPage)
             PageControl(numberOfPages: pages.count, currentPage: $currentPage)
