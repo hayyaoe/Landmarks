@@ -10,6 +10,8 @@ import SwiftUI
 struct CategoryHome: View {
     // add ModelData property
     @Environment(ModelData.self) var modelData
+    // add state Variable
+    @State private var showingProfile = false
     
     var body: some View {
         // add Navigation Split View
@@ -31,7 +33,21 @@ struct CategoryHome: View {
                 }
                 .listRowInsets(EdgeInsets())
             }
+            // try to use the listStyle modifier.
+            .listStyle(.inset)
             .navigationTitle("Featured")
+            // add toolbar modifier to add user profile button to show user profile.
+            .toolbar {
+                Button {
+                    showingProfile.toggle()
+                } label: {
+                    Label("User Profile", systemImage: "person.crop.circle")
+                }
+            }
+            .sheet(isPresented: $showingProfile) {
+                ProfileHost()
+                    .environment(modelData)
+            }
         } detail: {
             Text("Select a Landmark")
         }
