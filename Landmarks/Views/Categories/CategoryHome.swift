@@ -18,6 +18,8 @@ struct CategoryHome: View {
         NavigationSplitView {
             // display the categories using list.Category case name identifies each item in the list, which must be unique among other categories because it’s an enumeration.
             List {
+                // replace placeholder fetuare imagee imaeg
+                PageView(pages: modelData.features.map { FeatureCard(landmark: $0) })
                 
                 // add image for the first feartued landmark and add as a carousel
                 modelData.features[0].image

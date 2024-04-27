@@ -32,6 +32,12 @@ struct Landmark: Hashable, Codable, Identifiable {
         Image(imageName)
     }
     
+    // add computed property to return the feature image if exist.
+    var featureImage: Image? {
+        isFeatured ? Image(imageName + "_feature") : nil
+    }
+
+    
     private var coordinates: Coordinates
     var locaitonCoordinate: CLLocationCoordinate2D{
         CLLocationCoordinate2D(
