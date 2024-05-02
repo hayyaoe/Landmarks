@@ -15,13 +15,29 @@ struct LandmarkRow: View {
             landmark.image
                 .resizable()
                 .frame(width: 50,height: 50)
-            Text(landmark.name)
+                // add corner radius for refined look
+                .cornerRadius(5)
+            // wrap landmarkname with VStack then add secondary information.
+            VStack(alignment: .leading){
+                Text(landmark.name)
+                    .bold()
+                // wrap the landmark park information with condition so it dont show up on appleWatch view.
+                #if !os(watchOS)
+                Text(landmark.park)
+                    .font(.caption)
+                    .foregroundStyle(.secondary)
+                #endif
+            }
+            
             Spacer()
+            
             if landmark.isFavorite {
                 Image(systemName: "star.fill")
                     .foregroundStyle(.yellow)
             }
         }
+        // add a little vertical padding for better looks
+        .padding(.vertical,4)
     }
 }
 

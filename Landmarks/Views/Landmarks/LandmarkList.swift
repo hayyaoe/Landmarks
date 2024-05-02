@@ -34,6 +34,8 @@ struct LandmarkList: View {
             }
             .animation(.default, value: filteredLandmarks)
             .navigationTitle("Landmarks")
+            // add minimum width to improve the preview and to ensure its never become too small on macOS Window
+            .frame(minWidth: 300)
         } detail: {
             Text("Select a Landmark")
         }

@@ -25,7 +25,7 @@ struct LandmarkDetail: View {
                         
                         MapView(coordinate: landmark.locaitonCoordinate)
                             .frame(height: 300)
-                        
+                        // add open in maps button
                         Button("Open in Maps") {
                             let destination = MKMapItem(placemark: MKPlacemark(coordinate: landmark.locaitonCoordinate))
                             destination.name = landmark.name
