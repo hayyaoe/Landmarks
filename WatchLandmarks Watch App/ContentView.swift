@@ -6,19 +6,22 @@
 //
 
 import SwiftUI
+import UserNotifications
 
 struct ContentView: View {
     var body: some View {
-        VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundStyle(.tint)
-            Text("Hello, world!")
-        }
-        .padding()
+        // add landmark list
+        LandmarkList()
+        // add task to make request asynchornously that SwiftUI calls when the content view first appers.
+            .task {
+                let center = UNUserNotificationCenter.current()
+                _ = try? await center.requestAuthorization(
+                    options: [.alert, .sound, .badge]
+                )
+            }
     }
 }
 
 #Preview {
-    ContentView()
+    ContentView().environment(ModelData())
 }
