@@ -31,8 +31,10 @@ struct LandmarkRow: View {
             
             Spacer()
             
+            // add condition for isFavorite property.
             if landmark.isFavorite {
                 Image(systemName: "star.fill")
+                // change the color of the image using foregroundStye because it is a vector based image.
                     .foregroundStyle(.yellow)
             }
         }
@@ -41,6 +43,7 @@ struct LandmarkRow: View {
     }
 }
 
+// use group container for grounping view content. Xcode with render the group's child views stacked as one preview in the canvas.
 #Preview {
     let landmarks = ModelData().landmarks
     return Group{

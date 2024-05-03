@@ -8,7 +8,9 @@
 import SwiftUI
 
 struct LandmarkList: View {
+    // In LandmarkList, add an @Environment property wrapper to the view, and an environment(_:) modifier to the preview. The modelData property gets its value automatically, as long as the environment(_:) modifier has been applied to a parent.
     @Environment(ModelData.self) var modelData
+    // add state varirable showFavoritesOnly with its inital value set to false.
     @State private var showFavoritesOnly = false
     // add filter variable defaulting all case.
     @State private var filter = FilterCategory.all
@@ -26,6 +28,7 @@ struct LandmarkList: View {
         var id: FilterCategory { self }
     }
     
+    // compute a filteerd version of the landmarks list by cheking the state properies such as showFavorites only or selectedLandmark.
     var filteredLandmarks: [Landmark]{
         // update filtered lanmarks
         modelData.landmarks.filter{ landmark in
@@ -48,7 +51,7 @@ struct LandmarkList: View {
         @Bindable var modelData = modelData
         
         NavigationSplitView{
-            // initialize the list with a dingind to the selected value
+            // initialize the list with a filtered version to the selected value
             List(selection: $selectedLandmark){
                 ForEach(filteredLandmarks) { landmark in
                     NavigationLink {
@@ -76,6 +79,7 @@ struct LandmarkList: View {
                         }
                         .pickerStyle(.inline)
                         
+                        // You use the $ prefix to access a binding to a state variable, or one of its properties.
                         Toggle(isOn: $showFavoritesOnly) {
                             Label("Favorites only", systemImage: "star.fill")
                         }

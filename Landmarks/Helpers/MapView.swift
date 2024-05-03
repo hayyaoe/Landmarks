@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+// import MapKit to gain acces to the framework
 import MapKit
 
 struct MapView: View {
@@ -39,6 +40,7 @@ struct MapView: View {
         Map(position: .constant(.region(region)))
     }
     
+    // create private computed variable that holds the region information fort he map.
     private var region: MKCoordinateRegion {
         MKCoordinateRegion(
             center: coordinate,

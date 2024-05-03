@@ -30,8 +30,10 @@ class ModelData {
     }
 }
 
+// create an array of landmarks to that initialized with landmarkData.json.
 var landmarks: [Landmark] = load("landmarkData.json")
 
+// create a load() method that fethces JSON data with a given name from the app's main bundle. The load method relies on the return type’s conformance to the Decodable protocol, which is one component of the Codable protocol.
 func load<T: Decodable>(_ filename: String)-> T {
     let data: Data
     

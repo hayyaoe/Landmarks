@@ -12,10 +12,12 @@ struct CircleImage: View {
     
     var body: some View {
         image
+        // use clipShapet to change image shape to circle then add overlay to add border of the image.
             .clipShape(/*@START_MENU_TOKEN@*/Circle()/*@END_MENU_TOKEN@*/)
             .overlay {
                 Circle().stroke(.white, lineWidth: 4)
             }
+        // add 7 poit radius shadow
             .shadow(radius: 7)
     }
 }
