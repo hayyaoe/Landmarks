@@ -12,6 +12,8 @@ struct LandmarkList: View {
     @State private var showFavoritesOnly = false
     // add filter variable defaulting all case.
     @State private var filter = FilterCategory.all
+    // add state variable for selected landmark
+    @State private var selectedLandmark: Landmark?
     
     // add filterCategory enum to discribe filter states.
     enum FilterCategory: String, CaseIterable, Identifiable {
@@ -37,15 +39,25 @@ struct LandmarkList: View {
         return showFavoritesOnly ? "Favorite \(title)" : title
     }
     
+    // add computer property that indicates the index of the selected landmark.
+    var index: Int? {
+        modelData.landmarks.firstIndex(where: { $0.id == selectedLandmark?.id })
+    }
+    
     var body: some View {
+        @Bindable var modelData = modelData
+        
         NavigationSplitView{
-            List{
+            // initialize the list with a dingind to the selected value
+            List(selection: $selectedLandmark){
                 ForEach(filteredLandmarks) { landmark in
                     NavigationLink {
                         LandmarkDetail(landmark: landmark)
                     } label: {
                         LandmarkRow(landmark: landmark)
                     }
+                    // add tag for navigation link. The tag associates a particular landmark with the given item in the ForEach, which then drives the selection.
+                    .tag(landmark)
                 }
             }
             .animation(.default, value: filteredLandmarks)
@@ -75,7 +87,8 @@ struct LandmarkList: View {
         } detail: {
             Text("Select a Landmark")
         }
-
+        // add focusedValue modifier to the NavigationSplitView to provide a binding the value from the landmarks array.
+        .focusedValue(\.selectedLandmark, $modelData.landmarks[index ?? 0])
     }
 }
 
